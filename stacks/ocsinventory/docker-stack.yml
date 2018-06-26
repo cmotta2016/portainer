@@ -27,7 +27,6 @@ services :
       MYSQL_PASSWORD : ${MYSQL_PASSWORD}
       MYSQL_DATABASE : ${MYSQL_DATABASE}
     volumes :
-      - ./sql/:/docker-entrypoint-initdb.d/
       - ocsdata:/var/lib/mysql
 
 
