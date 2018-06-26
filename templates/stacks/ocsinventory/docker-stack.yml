@@ -1,0 +1,38 @@
+version: '3'
+
+services :
+  web :
+    image : ocsinventory/ocsinventory-docker-image:latest
+    environment :
+      OCS_DBNAME : ${MYSQL_DATABASE}
+      OCS_DBSERVER_READ : ${MYSQL_SERVER_HOST}
+      OCS_DBSERVER_WRITE : ${MYSQL_SERVER_HOST}
+      OCS_DBUSER : ${MYSQL_USER}
+      OCS_DBPASS : ${MYSQL_PASSWORD}
+    volumes :
+      - ocssrv:/usr/share/ocsinventory-reports/
+      - ocssrv:/etc/ocsinventory-reports/
+      - ocssrv:/var/lib/ocsinventory-reports/
+    ports :
+      - 80:80
+      - 443:443
+
+  db :
+    image : mysql:5.7
+    restart_policy:
+      condition: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD : ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER : ${MYSQL_USER}
+      MYSQL_PASSWORD : ${MYSQL_PASSWORD}
+      MYSQL_DATABASE : ${MYSQL_DATABASE}
+    volumes :
+      - ./sql/:/docker-entrypoint-initdb.d/
+      - ocsdata:/var/lib/mysql
+
+
+volumes:
+  ocsdata:
+    driver: local
+  ocssrv:
+    driver: local
