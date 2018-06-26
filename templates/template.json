@@ -829,6 +829,46 @@
   },
   {
     "type": "stack",
+    "title": "OCS INVENTORY",
+    "description": "OCS with a MySQL database",
+    "note": "Deploys OCS app with a MySQL database.",
+    "categories": ["CMS"],
+    "platform": "linux",
+    "logo": "https://www.inter-fairs.com/Content/img/Logos/46/4648/464876/default.jpg",
+    "repository": {
+      "url": "https://github.com/cmotta2016/portainer",
+      "stackfile": "stacks/ocsinventory/docker-stack.yml"
+    },
+    "env": [
+      {
+        "name": "MYSQL_ROOT_PASSWORD",
+        "label": "Database root password",
+        "description": "Password used by the MySQL root user."
+      }
+      {
+        "name": "MYSQL_DATABASE",
+        "label": "Database name",
+        "description": "Name of database used for ocs."
+      }
+      {
+        "name": "MYSQL_USER",
+        "label": "Database user",
+        "description": "User of database used for ocs."
+      }
+      {
+        "name": "MYSQL_PASSWORD",
+        "label": "Database user password",
+        "description": "Password used by the MySQL user of database used for ocs."
+      }
+      {
+        "name": "MYSQL_SERVER_HOST",
+        "label": "Name of service MYSQL",
+        "description": "Used for ocs to connect to database service. For this, use <stack name>_db."
+      }
+    ]
+  },
+  {
+    "type": "stack",
     "title": "Microsoft OMS Agent",
     "description": "Microsoft Operations Management Suite Linux agent.",
     "categories": ["OPS"],
