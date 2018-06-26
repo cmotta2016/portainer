@@ -836,7 +836,7 @@
     "platform": "linux",
     "logo": "https://www.inter-fairs.com/Content/img/Logos/46/4648/464876/default.jpg",
     "repository": {
-      "url": "https://github.com/cmotta2016/portainer",
+      "url": "https://github.com/cmotta2016/portainer/templates",
       "stackfile": "stacks/ocsinventory/docker-stack.yml"
     },
     "env": [
