@@ -19,8 +19,8 @@ services :
 
   db :
     image : mysql:5.7
-    restart_policy:
-      condition: on-failure
+    #restart_policy:
+    #  condition: on-failure
     environment:
       MYSQL_ROOT_PASSWORD : ${MYSQL_ROOT_PASSWORD}
       MYSQL_USER : ${MYSQL_USER}
