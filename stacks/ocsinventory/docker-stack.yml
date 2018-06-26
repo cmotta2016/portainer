@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  web:
+  ocs:
     image: ocsinventory/ocsinventory-docker-image:latest
     environment:
       OCS_DBNAME: ${MYSQL_DATABASE}
@@ -29,9 +29,15 @@ services:
     volumes:
       - ocsdata:/var/lib/mysql
 
+  glpi:
+    image: cmotta2016/glpi
+#    restart: always
+    ports:
+      - "80"
+    volumes:
+      - app:/var/www/glpi
 
 volumes:
   ocsdata:
-    driver: local
   ocssrv:
-    driver: local
+  app:
