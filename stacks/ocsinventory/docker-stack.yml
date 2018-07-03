@@ -16,7 +16,7 @@ services:
     ports:
       - 80:80
       - 443:443
-    container_name: ocsinventory-server
+#    container_name: ocsinventory-server
 
   db:
     image: mysql:5.7
@@ -27,7 +27,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
     volumes:
       - database:/var/lib/mysql
-    container_name: database
+#    container_name: database
 
   glpi:
     image: cmotta2016/glpi
@@ -35,7 +35,7 @@ services:
       - "80"
     volumes:
       - glpiserver:/var/www/glpi
-    container_name: glpi-server
+#    container_name: glpi-server
 
 volumes:
   database:
