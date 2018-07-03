@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  ocs:
+    image: cmotta2016/ocsinventory:2.4.1
+    environment:
+      OCS_DBNAME: ${MYSQL_DATABASE}
+      OCS_DBSERVER_READ: ${MYSQL_SERVER_HOST}
+      OCS_DBSERVER_WRITE: ${MYSQL_SERVER_HOST}
+      OCS_DBUSER: ${MYSQL_USER}
+      OCS_DBPASS: ${MYSQL_PASSWORD}
+    volumes:
+      - ocsserver:/usr/share/ocsinventory-reports/
+      - ocsserver:/etc/ocsinventory-reports/
+      - ocsserver:/var/lib/ocsinventory-reports/
+    ports:
+      - 80:80
+      - 443:443
+    container_name: ocsinventory-server
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - database:/var/lib/mysql
+    container_name: database
+
+  glpi:
+    image: cmotta2016/glpi
+    ports:
+      - "80"
+    volumes:
+      - glpiserver:/var/www/glpi
+    container_name: glpi-server
+
+volumes:
+  database:
+  ocsserver:
+  glpiserver:
