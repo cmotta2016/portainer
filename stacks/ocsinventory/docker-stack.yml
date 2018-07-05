@@ -14,8 +14,8 @@ services:
       - ocsserver:/etc/ocsinventory-reports/
       - ocsserver:/var/lib/ocsinventory-reports/
     ports:
-      - 80
-      - 443
+      - "80"
+      - "443"
     deploy:
       mode: replicated
       replicas: 1
@@ -40,7 +40,7 @@ services:
   glpi:
     image: cmotta2016/glpi
     ports:
-      - 80
+      - "80"
     volumes:
       - glpiserver:/var/www/glpi
     deploy:
