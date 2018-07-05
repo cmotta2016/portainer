@@ -15,6 +15,7 @@ services:
       - ocsserver:/var/lib/ocsinventory-reports/
    ports:
       - target: 80
+        published: 80
         protocol: tcp
         mode: host
 #    ports:
@@ -45,6 +46,7 @@ services:
     image: cmotta2016/glpi
     ports:
       - target: 80
+        published: 8080
         protocol: tcp
         mode: host
 #    ports:
