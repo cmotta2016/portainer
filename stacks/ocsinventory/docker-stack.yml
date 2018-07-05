@@ -13,9 +13,6 @@ services:
       - ocsserver:/usr/share/ocsinventory-reports/
       - ocsserver:/etc/ocsinventory-reports/
       - ocsserver:/var/lib/ocsinventory-reports/
-    deploy:
-      placement:
-        constraints: [node.role != manager]
     ports:
       - 80:80
       - 443:443
