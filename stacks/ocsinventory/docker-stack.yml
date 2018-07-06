@@ -13,14 +13,14 @@ services:
       - ocsserver:/usr/share/ocsinventory-reports/
       - ocsserver:/etc/ocsinventory-reports/
       - ocsserver:/var/lib/ocsinventory-reports/
-   ports:
-      - target: 80
-        published: 80
-        protocol: tcp
-        mode: host
-#    ports:
-#      - "80"
-#      - "443"
+#   ports:
+#      - target: 80
+#        published: 80
+#        protocol: tcp
+#        mode: host
+    ports:
+      - 80:80
+      - 443:443
     deploy:
       mode: replicated
       replicas: 1
@@ -44,13 +44,13 @@ services:
 
   glpi:
     image: cmotta2016/glpi
-    ports:
-      - target: 80
-        published: 8080
-        protocol: tcp
-        mode: host
 #    ports:
-#      - "80"
+#      - target: 80
+#        published: 8080
+#        protocol: tcp
+#        mode: host
+    ports:
+      - "80"
     volumes:
       - glpiserver:/var/www/glpi
     deploy:
