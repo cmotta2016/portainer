@@ -70,16 +70,16 @@ volumes:
     driver_opts:
       type: "nfs"
       o: addr=192.168.144.242,nolock,soft,rw
-      device: ":/opt/volumes"
+      device: ":/opt/volumes/ocs"
   glpiserver:
     driver: local
     driver_opts:
       type: "nfs"
       o: addr=192.168.144.242,nolock,soft,rw
-      device: ":/opt/volumes"
+      device: ":/opt/volumes/glpi"
   database:
     driver: local
     driver_opts:
       type: "nfs"
       o: addr=192.168.144.242,nolock,soft,rw
-      device: ":/opt/volumes"
+      device: ":/opt/volumes/database"
