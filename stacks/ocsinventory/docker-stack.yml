@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   ocs:
-    image: cmotta2016/ocsinventory:2.4.1
+    image: cmotta2016/ocsinventory
     environment:
       OCS_DBNAME: ${MYSQL_DATABASE}
       OCS_DBSERVER_READ: ${MYSQL_SERVER_HOST}
