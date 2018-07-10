@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 
 services:
   ocs:
@@ -60,7 +60,26 @@ services:
         constraints: [node.role == worker]
 #    container_name: glpi-server
 
+#volumes:
+#  database:
+#  ocsserver:
+#  glpiserver:
 volumes:
-  database:
   ocsserver:
+    driver: local
+    driver_opts:
+      type: "nfs"
+      o: addr=192.168.144.242,nolock,soft,rw
+      device: ":/opt/volumes"
   glpiserver:
+    driver: local
+    driver_opts:
+      type: "nfs"
+      o: addr=192.168.144.242,nolock,soft,rw
+      device: ":/opt/volumes"
+  database:
+    driver: local
+    driver_opts:
+      type: "nfs"
+      o: addr=192.168.144.242,nolock,soft,rw
+      device: ":/opt/volumes"
