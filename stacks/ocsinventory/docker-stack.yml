@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   ocs:
-    image: registry.der.rj:5000/ocsinventory
+    image: cmotta2016/ocsinventory
     environment:
       OCS_DBNAME: ${MYSQL_DATABASE}
       OCS_DBSERVER_READ: ${MYSQL_SERVER_HOST}
@@ -29,7 +29,7 @@ services:
 #    container_name: ocsinventory-server
 
   db:
-    image: registry.der.rj:5000/mysql:5.7
+    image: cmotta2016/mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_USER: ${MYSQL_USER}
@@ -43,7 +43,7 @@ services:
 #    container_name: database
 
   glpi:
-    image: registry.der.rj:5000/glpi
+    image: cmotta2016/glpi
 #    ports:
 #      - target: 80
 #        published: 8080
