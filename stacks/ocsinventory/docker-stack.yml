@@ -29,7 +29,7 @@ services:
 #    container_name: ocsinventory-server
 
   db:
-    image: cmotta2016/mysql:5.7
+    image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_USER: ${MYSQL_USER}
