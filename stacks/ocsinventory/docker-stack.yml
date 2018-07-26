@@ -29,7 +29,7 @@ services:
       replicas: 1
       labels:
         - com.df.notify=true
-        - com.df.servicePath=/ocs
+        - com.df.serviceDomain=ocs.der.rj
         - com.df.port=8080
 #      placement:
 #        constraints: [node.role == worker]
@@ -68,7 +68,7 @@ services:
       replicas: 1
       labels:
         - com.df.notify=true
-        - com.df.servicePath=/glpi
+        - com.df.serviceDomain=glpi.der.rj
         - com.df.port=8080
 #      placement:
 #        constraints: [node.role == worker]
