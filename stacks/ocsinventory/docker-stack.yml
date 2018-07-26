@@ -18,14 +18,20 @@ services:
 #        published: 80
 #        protocol: tcp
 #        mode: host
-    ports:
-      - 80:80
-      - 443:443
+#    ports:
+#      - 80:80
+#      - 443:443
+    networks:
+      - proxy
+      - default
     deploy:
       mode: replicated
       replicas: 1
-      placement:
-        constraints: [node.role == worker]
+      labels:
+        - com.df.notify=true
+        - com.df.port=8080
+#      placement:
+#        constraints: [node.role == worker]
 #    container_name: ocsinventory-server
 
   db:
@@ -49,15 +55,21 @@ services:
 #        published: 8080
 #        protocol: tcp
 #        mode: host
-    ports:
-      - "80"
+#    ports:
+#      - "80"
     volumes:
       - glpiserver:/var/www/glpi
+    networks:
+      - proxy
+      - default
     deploy:
       mode: replicated
       replicas: 1
-      placement:
-        constraints: [node.role == worker]
+      labels:
+        - com.df.notify=true
+        - com.df.port=8080
+#      placement:
+#        constraints: [node.role == worker]
 #    container_name: glpi-server
 
 #volumes:
@@ -83,3 +95,9 @@ volumes:
       type: "nfs"
       o: addr=192.168.144.242,nolock,soft,rw
       device: ":/opt/volumes/database"
+      
+networks:
+  default:
+    external: false
+  proxy:
+    external: true
