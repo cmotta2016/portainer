@@ -30,7 +30,7 @@ services:
       labels:
         - com.df.notify=true
         - com.df.serviceDomain=ocs.der.rj
-        - com.df.port=8080
+        - com.df.port=80
 #      placement:
 #        constraints: [node.role == worker]
 #    container_name: ocsinventory-server
@@ -69,7 +69,7 @@ services:
       labels:
         - com.df.notify=true
         - com.df.serviceDomain=glpi.der.rj
-        - com.df.port=8080
+        - com.df.port=80
 #      placement:
 #        constraints: [node.role == worker]
 #    container_name: glpi-server
