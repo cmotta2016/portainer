@@ -30,7 +30,7 @@ services:
       labels:
         - com.df.notify=true
         - com.df.serviceDomain=ocs.der.rj
-        - com.df.port=80
+        - com.df.port=443
 #      placement:
 #        constraints: [node.role == worker]
 #    container_name: ocsinventory-server
