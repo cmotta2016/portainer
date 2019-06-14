@@ -809,6 +809,32 @@
   },
   {
     "type": "stack",
+    "title": "Jenkins Master",
+    "description": "Jenkins Master",
+    "note": "Deploy Jenkins Master.",
+    "categories": ["CMS"],
+    "platform": "linux",
+    "logo": "https://portainer.io/images/logos/jenkins.png",
+    "repository": {
+      "url": "https://github.com/cmotta2016/jenkins-swarm-master",
+      "stackfile": "docker-compose.yml"
+    },
+  },
+{
+    "type": "stack",
+    "title": "Jenkins Slave",
+    "description": "Jenkins Slave",
+    "note": "Deploy Jenkins Slave.",
+    "categories": ["CMS"],
+    "platform": "linux",
+    "logo": "https://portainer.io/images/logos/jenkins.png",
+    "repository": {
+      "url": "https://github.com/cmotta2016/jenkins-swarm-slave",
+      "stackfile": "docker-compose.yml"
+    },
+  },
+  {
+    "type": "stack",
     "title": "GLPI",
     "description": "GLPI with a MySQL database",
     "note": "Deploys GLPI app with a MySQL database.",
