@@ -817,7 +817,7 @@
     "logo": "https://portainer.io/images/logos/jenkins.png",
     "repository": {
       "url": "https://github.com/cmotta2016/jenkins-swarm-master",
-      "stackfile": "docker-compose.yml"
+      "stackfile": "stacks/docker-compose.yml"
     },
   },
 {
@@ -830,7 +830,7 @@
     "logo": "https://portainer.io/images/logos/jenkins.png",
     "repository": {
       "url": "https://github.com/cmotta2016/jenkins-swarm-slave",
-      "stackfile": "docker-compose.yml"
+      "stackfile": "stacks/docker-compose.yml"
     },
   },
   {
@@ -914,6 +914,40 @@
         "name": "AZURE_PRIMARY_KEY",
         "label": "Primary key",
         "description": "Azure primary key"
+      }
+    ]
+  },
+  {
+    "type": "stack",
+    "title": "Jenkins Swarm Node",
+    "description": "Jenkins Swarm Node Slave",
+    "note": "Deploys node jenkins slaves.",
+    "categories": ["CMS"],
+    "platform": "linux",
+    "logo": "https://portainer.io/images/logos/jenkins.png",
+    "repository": {
+      "url": "https://github.com/cmotta2016/jenkins-swarm-node",
+      "stackfile": "stacks/docker-stack.yml"
+    },
+    "env": [
+      {
+        "name": "JENKINS_HOME_OUT",
+        "label": "Exposed Jenkins directory",
+        "description": "This environments expose directory of Jenkins."
+      }
+    ]
+    "env": [
+      {
+        "name": "NODE",
+        "label": "Define Node version",
+        "description": "This environments define node version of image."
+      }
+    ]
+    "env": [
+      {
+        "name": "TAG",
+        "label": "Define image tag",
+        "description": "This environments define image tag."
       }
     ]
   },
