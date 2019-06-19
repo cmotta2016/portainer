@@ -934,16 +934,12 @@
         "name": "JENKINS_HOME_OUT",
         "label": "Exposed Jenkins directory",
         "description": "This environments expose directory of Jenkins."
-      }
-    ]
-    "env": [
+      },
       {
         "name": "NODE",
         "label": "Define Node version",
         "description": "This environments define node version of image."
-      }
-    ]
-    "env": [
+      },
       {
         "name": "TAG",
         "label": "Define image tag",
